@@ -1,0 +1,406 @@
+<html>
+<style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Segoe UI"}
+    html, body {
+        height: 100vh;
+    }
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+/*        width:40%;*/
+    }
+    .center2 {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .image-set {
+        display: inline-block;
+        position: relative;
+    }
+    .principles_tile {
+        width: 100%;
+        height: auto;
+        cursor: pointer;
+        z-index: 1; 
+/*        set to ensure that the images are at the back and not overlapping popups*/
+    }
+    .base-image {
+        width: 60%;
+        height: auto;
+        padding-left: 0px;
+    }
+    .popup {
+        width: 60%;
+        height: auto;
+        display: none;
+        padding-left: 0px;
+    }
+    .popup2tile {
+        width: 60%;
+        height: auto;
+        display: none;
+        padding-left: 0px;
+    }
+    .popup3tile {
+        width: 60%;
+        height: auto;
+        display: none;
+        padding-left: 0px;
+    }
+    .popup-text {
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+    .popup-oldtext {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    .container {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin-inline: auto;
+      float: left;
+    }
+    #textcontainer {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin-inline: auto;
+      width: 100%;
+      float: left;
+      background-color: white;
+    }
+    .popup-container {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin-inline: auto;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 10;
+      float: left;
+    }
+    .popup-textcontainer {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin-inline: auto;
+      width: 100%;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 10;
+      background-color: white;
+      float: left;
+    }
+    .popup.active {
+        display:block;
+    }
+    .popup2tile.active {
+        display:block;
+    }
+    .popup3tile.active {
+        display:block;
+    }
+    .popup-text.active {
+        display:block;
+    }
+    .popup-oldtext.inactive {
+        display:none;
+    }
+    ul li {
+        font-family: Segoe UI
+    }
+</style>
+<!-- if you have multiple classes, just put a space in the class reference i.e. class="principles_tile name" -->
+
+<body>
+    <div style="display: flex; width: 100%;">
+        <div style="flex: 0 0 25%; padding: 25px 50px 50px 18vw;">
+            <table class="center">
+                <tr>
+                    <th colspan="4"> <h2><span style="color:green">Gestalt's Principles</span></h2></th>
+                </tr>
+                <tr>
+                    <td> <img class="principles_tile" src="Gestalt_Principles/1_Proximity.png" alt="1_Proximity" data-popup="popupA1"> </td> 
+                    <td> <img class="principles_tile" src="Gestalt_Principles/2_Similarity.png" alt="2_Similarity" data-popup="popupA2"> </td>
+                    <td> <img class="principles_tile" src="Gestalt_Principles/3_Enclosure.png" alt="3_Enclosure" data-popup="popupA3"> </td>
+                    <td> <img class="principles_tile" src="Gestalt_Principles/4_CommonFate.png" alt="4_CommonFate" data-popup="popupA4"> </td>
+                </tr>
+                <tr>
+                    <td> <img class="principles_tile" src="Gestalt_Principles/5_Closure.png" alt="5_Closure" data-popup="popupA5"> </td>
+                    <td> <img class="principles_tile" src="Gestalt_Principles/6_Continuity.png" alt="6_Continuity" data-popup="popupA6"> </td>
+                    <td> <img class="principles_tile" src="Gestalt_Principles/7_Connection.png" alt="7_Connection" data-popup="popupA7"> </td>
+                    <td> <img class="principles_tile" src="Gestalt_Principles/8_FigureGround.png" alt="8_FigureGround" data-popup="popupA8"> </td>
+                </tr>
+            </table>
+        </div>
+        <div style="flex: 0 0 23%; padding: 25px 25px 25px 12vw"> <!-- padding is top right bottom left, flex is flex-grow, flex-shrink, flex-basis -->
+            <table class="center">
+                <tr>
+                    <th colspan="4"> <h2><span style="color:blue">Visual Hierarchy</span></h2></th>
+                </tr>
+                <tr>
+                    <td> <img class="principles_tile" src="Visual_Hierarchy/1_Size.png" alt="1_Size" data-popup="popupB1"> </td> 
+                    <td> <img class="principles_tile" src="Visual_Hierarchy/2_Color.png" alt="2_Color" data-popup="popupB2"> </td>
+                    <td> <img class="principles_tile" src="Visual_Hierarchy/3_Contrast.png" alt="3_Contrast" data-popup="popupB3"> </td>
+                    <td> <img class="principles_tile" src="Visual_Hierarchy/4_Alignment.png" alt="4_Alignment" data-popup="popupB4"> </td>
+                </tr>
+                <tr>
+                    <td> <img class="principles_tile" src="Visual_Hierarchy/5_Repetition.png" alt="5_Repetition" data-popup="popupB5"> </td>
+                    <td> <img class="principles_tile" src="Visual_Hierarchy/6_Proximity.png" alt="6_Proximity" data-popup="popupB6"> </td>
+                    <td> <img class="principles_tile" src="Visual_Hierarchy/7_Whitespace.png" alt="7_Whitespace" data-popup="popupB7"> </td>
+                    <td> <img class="principles_tile" src="Visual_Hierarchy/8_Texture&Style.png" alt="8_Texture&Style" data-popup="popupB8"> </td>
+                </tr>
+            </table>
+        </div>
+     </div>
+    <div style="display:table; width:100%">
+         <div style="width:30%; float:inherit; padding:0px">
+            <div class="popup-container"> <img class="base-image" src="Gestalt_Principles/0P_Full.png" alt="Full"> </div>
+            <div class="popup-container"> <img class="popup" id="popupA1" src="Gestalt_Principles/1P_Proximity.png" alt="1_Proximity"> </div>
+            <div class="popup-container"> <img class="popup3tile" id="popupA2" src="Gestalt_Principles/2P_Similarity.png" alt="2_Similarity"> </div>
+            <div class="popup-container"> <img class="popup" id="popupA3" src="Gestalt_Principles/3P_Enclosure.png" alt="3_Enclosure"> </div>
+            <div class="popup-container"> <img class="popup" id="popupA4" src="Gestalt_Principles/4P_CommonFate.png" alt="4_CommonFate"> </div>
+            <div class="popup-container"> <img class="popup" id="popupA5" src="Gestalt_Principles/5P_Closure.png" alt="5_Closure"> </div>
+            <div class="popup-container"> <img class="popup" id="popupA6" src="Gestalt_Principles/6P_Continuity.png" alt="6_Continuity"> </div>
+            <div class="popup-container"> <img class="popup" id="popupA7" src="Gestalt_Principles/7P_Connection.png" alt="7_Connection"> </div>
+            <div class="popup-container"> <img class="popup2tile" id="popupA8" src="Gestalt_Principles/8P_FigureGround.png" alt="8_FigureGround"> </div>
+
+            <div class="popup-container"> <img class="popup" id="popupB1" src="Visual_Hierarchy/1P_Size.png" alt="1_Size"> </div>
+            <div class="popup-container"> <img class="popup3tile" id="popupB2" src="Visual_Hierarchy/2P_Color.png" alt="2_Color"> </div>
+            <div class="popup-container"> <img class="popup" id="popupB3" src="Visual_Hierarchy/3P_Contrast.png" alt="3_Contrast"> </div>
+            <div class="popup-container"> <img class="popup" id="popupB4" src="Visual_Hierarchy/4P_Alignment.png" alt="4_Alignment"> </div>
+            <div class="popup-container"> <img class="popup" id="popupB5" src="Visual_Hierarchy/5P_Repetition.png" alt="5_Repetition"> </div>
+            <div class="popup-container"> <img class="popup" id="popupB6" src="Visual_Hierarchy/6P_Proximity.png" alt="6_Proximity"> </div>
+            <div class="popup-container"> <img class="popup" id="popupB7" src="Visual_Hierarchy/7P_Whitespace.png" alt="7_Whitespace"> </div>
+            <div class="popup-container"> <img class="popup2tile" id="popupB8" src="Visual_Hierarchy/8P_Texture&Style.png" alt="8_Texture&Style"> </div>
+        </div>
+         <div style="width:40%; float:right; position:relative;" display="table-cell">
+             <div id="textcontainer">
+                <div class="popup-oldtext" id=popup0>
+                    <h2> Highlights </h2>
+                            <ul>
+                                <li> <strong>Visual Load:</strong> </li>
+                                <ul>
+                                    <li> Color themes are strategically chosen and used while retaining <span style="color:green"><strong>connectedness, similarity</strong></span> and <span style="color:green"><strong>enclosure</strong></span> </li>
+                                    <li> White background used to lighten visual load while retaining emphasis on features (<span style="color:green"><strong>Figure-ground</strong></span>) </li>
+                                </ul>
+                                <br>
+                                <li> <strong>Visual Flow:</strong> </li>
+                                <ul>
+                                    <li> Circular flow (<span style="color:green"><strong>closure</strong></span>) coupled with feature <span style="color:blue"><strong>alignment</strong></span>, arrow <span style="color:green"><strong>connections</strong></span> and <span style="color:green"><strong>similarity</strong></span> direct reader’s line of sight</li>
+                                    <li> Arrows are drawn with similar size and relative directions, indicating <span style="color:green"><strong>common fate</strong></span> of the influence of the field by itself and on the following field (e.g. Biology → Technology) </li>
+                                    <li> Similar <span style="color:blue"><strong>sizes, colors</strong></span> and <span style="color:blue"><strong> contrast</strong></span> were chosen to convey <em>equal weighting</em> of each field </li>
+                                    <li> <span style="color:blue"><strong>Repetition</strong></span> and <span style="color:blue"><strong>proximity</strong></span> relate features to their respective bubbles and fields</li>
+                                    <li> Fonts and features have varying <span style="color:blue"><strong>textures and styles</strong></span> to guide line of sight </li>
+                                </ul>
+                            </ul>
+                </div>
+             </div>
+             <div class="popup-textcontainer">
+                <div class="popup-text" id=popupA1>
+                    <h2> Proximity </h2>
+                            <ul>
+                                <li> Some of the lines are <strong>closer</strong> to each other, while others not, giving a sense of the extent of their <strong>inter-relationship</strong> </li>
+                                <br>
+                                <li> <strong>Different levels of proximity</strong> overall indicate some notion of complexity, which relates to "Computation"</li>
+                            </ul>
+                </div>
+             </div>
+             <div class="popup-textcontainer">
+                <div class="popup-text" id=popupA2>
+                    <h2> Similarity </h2>
+                            <ul>
+                                <li> Features within each individual third are <strong>colored similarly</strong> to indicate <strong>belonging</strong> to the same field </li>
+                                <br>
+                                <li> Features are also of <strong>similar shapes and patterns</strong>, allowing the reader to infer that they belong to the same field</li>
+                            </ul>
+                </div>
+             </div>
+             <div class="popup-textcontainer">
+                <div class="popup-text" id=popupA3>
+                    <h2> Enclosure </h2>
+                            <ul>
+                                <li> <strong>Circles</strong> around the field, along with the colored <strong>dividers</strong> indicate that the fields are <strong>segmented</strong> into Biology, Computation and Technology </li>
+                            </ul>
+                </div>
+             </div>
+             <div class="popup-textcontainer">
+                <div class="popup-text" id=popupA4>
+                    <h2> Common Fate </h2>
+                            <ul>
+                                <li> Inferences from field (in text) follow a <strong>similar fate</strong>:</li>
+                                <ul>
+                                    <li> Outward (impact on the field) </li>
+                                    <li> Inward/Around the circle (impact on the next field) </li>
+                                </ul>
+                                <br>
+                                <li> Arrows are of <strong>similar lengths, relative direction</strong> and <strong>curvature</strong></li>
+                            </ul>
+                </div>
+             </div>
+             <div class="popup-textcontainer">
+                <div class="popup-text" id=popupA5>
+                    <h2> Closure </h2>
+                            <ul>
+                                <li> Despite the absence of an actual circular boundary, <strong>arrangement of features</strong> leads the reader to <strong>perceive</strong> that a circular boundary exists.</li>
+                            </ul>
+                </div>
+             </div>
+             <div class="popup-textcontainer">
+                <div class="popup-text" id=popupA6>
+                    <h2> Continuity </h2>
+                            <ul>
+                                <li> Gradation in circle colors are perceived as <strong>depth</strong> and <strong>related</strong> to each other</li>
+                                <br>
+                                <li> Use of color to <strong>emphasize</strong> the <strong>continuous connections</strong> between circles of interest</li>
+                            </ul>
+                </div>
+             </div>
+             <div class="popup-textcontainer">
+                <div class="popup-text" id=popupA7>
+                    <h2> Connection </h2>
+                            <ul>
+                                <li> Arrows <strong>direct visual flow</strong> in a circular fashion</li>
+                                <br>
+                                <li> Demonstrates <strong>relationships</strong> between each field</li>
+                            </ul>
+                </div>
+             </div>
+             <div class="popup-textcontainer">
+                <div class="popup-text" id=popupA8>
+                    <h2> Figure & Ground </h2>
+                            <ul>
+                                <li> Left: Use of <strong>white background</strong> within the bubbles and bubbles being <strong>in front</strong> of the core circle <strong>draws attention</strong> to words, arrows and circle borders</li>
+                                <br>
+                                <li> Right: Use of <strong>white background</strong> within the core circle <strong>draws attention</strong> to the features within each third</li>
+                            </ul>
+                </div>
+             </div>
+             <div class="popup-textcontainer">
+                <div class="popup-text" id=popupB1>
+                    <h2> Size </h2>
+                            <ul>
+                                <li> Bubbles corresponding to each field have similar <strong>sizes</strong>, which reflect <em>equal importance</em></li>
+                                <br>
+                                <li> Circle thirds are also <em>similarly</em> <strong>sized</strong> to avoid drawing attention away from each other to convey <em>equal weighting</em></li>
+                                <br>
+                                <li> Large <strong>size</strong> of the central circle draws attention to the features within before the bubbles</li>
+                            </ul>
+                </div>
+             </div>
+             <div class="popup-textcontainer">
+                <div class="popup-text" id=popupB2>
+                    <h2> Color </h2>
+                            <ul>
+                                <li> "Biology" has a marginally darker <strong>color</strong> compared to "Technology" and "Computation", which draws the reader's eyes to the top of the circle to start the circular visual path. Since the target audience has expertise in Systems Biology, the familiarity of "Biology" would also aid this hierarchy.</li>
+                                <br>
+                                <li> Each field is represented by its own <strong>color</strong>, which relates and groups its respective features</li>
+                            </ul>
+                </div>
+             </div>
+             <div class="popup-textcontainer">
+                <div class="popup-text" id=popupB3>
+                    <h2> Contrast </h2>
+                            <ul>
+                                <li> Features generally have <em>similar</em> levels of <strong>contrast</strong> to strengthen the notion of <em>equal importance</em>.
+                            </ul>
+                </div>
+             </div>
+             <div class="popup-textcontainer">
+                <div class="popup-text" id=popupB4>
+                    <h2> Alignment </h2>
+                            <ul>
+                                <li> Bubbles and arrows are <strong>aligned</strong> in a circular fashion to direct visual flow. (One would naturally move in the direction Biology → Technology → Computation) </li>
+                            </ul>
+                </div>
+             </div>
+             <div class="popup-textcontainer">
+                <div class="popup-text" id=popupB5>
+                    <h2> Repetition </h2>
+                            <ul>
+                                <li> Within each circle third, features have <strong>repeated</strong> styles for <em>consistency</em> within each field and to strengthen field <em>identity</em></li>
+                                <br>
+                                <li> Directions and sizes of arrows are <strong>repeated</strong> to show their <em>related</em> message of impact of the field and on the next field</li>
+                            </ul>
+                </div>
+             </div>
+             <div class="popup-textcontainer">
+                <div class="popup-text" id=popupB6>
+                    <h2> Proximity </h2>
+                            <ul>
+                                <li>Features within the circle third are <strong>close</strong> to their respective bubbles, relating them to the field denoted in the bubble</li>
+                            </ul>
+                </div>
+             </div>
+             <div class="popup-textcontainer">
+                <div class="popup-text" id=popupB7>
+                    <h2> Whitespace </h2>
+                            <ul>
+                                <li> Bubbles for each field use <strong>whitespace</strong> to draw attention to the center of the bubble, which states the field</li>
+                            </ul>
+                </div>
+             </div>
+             <div class="popup-textcontainer">
+                <div class="popup-text" id=popupB8>
+                    <h2> Texture and Style </h2>
+                            <ul>
+                                <li>Size and capitalization <strong>styles</strong> of the words denoting the field draw attention and represent <em>importance</em></li>
+                                <br>
+                                <li>Impact of field and on the next field are "supporting information" and have <strong>styles</strong> with smaller size and no capitalization. The marginally smaller size relative to the field names still allows readers to move their line of sight to them from field names</li>
+                                <br>
+                                <li>Field names and impacts have similar font <strong>styles</strong> to show relatedness and similar levels of performance</li>
+                            </ul>
+                </div>
+             </div>
+         </div>
+     </div>
+
+    <script>
+        // Wait for the HTML document to be fully loaded before running any code
+        document.addEventListener('DOMContentLoaded', () => {
+            // Find all elements with class 'thumbnail' and store them in thumbnails variable
+        const thumbnails = document.querySelectorAll('.principles_tile');
+        // Find all elements with class 'popup' and store them in popups variable
+        const popups = document.querySelectorAll('.popup, .popup2tile, .popup3tile, .popup-text');
+        const old_popups = document.querySelectorAll('.popup-oldtext');
+
+        // For each thumbnail we found, set up mouse event handlers
+        thumbnails.forEach(thumbnail => {
+            // When mouse enters a thumbnail...
+          thumbnail.addEventListener('mouseenter', () => {
+            // Get the popup ID from the thumbnail's data-popup attribute
+            const popupId = thumbnail.getAttribute('data-popup');
+            // Look through all popups...
+            popups.forEach(popup => {
+                // First remove 'active' class from all popups (hide them all)
+              popup.classList.remove('active');
+              if (popup.id === popupId) {
+                // Add 'active' class to show it
+                popup.classList.add('active');
+              }
+            })
+            old_popups.forEach(popup =>{
+                popup.classList.add('inactive');
+            });
+          });
+        // Hide popup on mouseleave
+        thumbnail.addEventListener('mouseleave', () => {
+            // Hide all popups by removing 'active' class from each one
+          popups.forEach(popup => {popup.classList.remove('active')
+           });
+          old_popups.forEach(popup =>{
+                popup.classList.remove('inactive');
+            });
+        });
+      });
+    })
+    
+    
+  </script>
+</body>
+</html>
